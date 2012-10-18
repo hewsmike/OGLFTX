@@ -53,6 +53,10 @@
 //! All of OGLFTX C++ objects are in this namespace.
 
 namespace OGLFTX {
+    /// Ratio of nominal font points to pixels, relating to coordinates
+    /// that are in 26.6 pixel format ( a font/driver/industry thingy ).
+    const float FONT_FUDGE_FACTOR;
+
     enum Coordinates {
         X, //!< The X component of space
         Y, //!< The Y component of space
@@ -70,32 +74,6 @@ namespace OGLFTX {
     //! Callback from GLU tessellation routines.
     typedef void (*GLUTessCallback)();
 
-
-    //! Advance describes the "advance" of a glyph, namely the distance in
-    //! model space at which the NEXT glyph should be drawn. This class exists
-    //! to assist the computation of string metrics.
-    struct Advance {
-        float dx_;  //!< Advance increment in the X direction.
-        float dy_;  //!< Advance increment in the Y direction.
-
-        //! Default constructor. An otherwise uninitialized Advance contains zeros.
-        Advance(float dx = 0, float dy = 0) : dx_(dx), dy_(dy) {
-            }
-
-        //! Initialize an advance from a FreeType advance member.
-        Advance(FT_Vector v) {
-            dx_ = v.x / 64.;
-            dy_ = v.y / 64.;
-            }
-
-        //! Increment Advance with a FreeType advance member.
-        //! \return a reference to oneself.
-        Advance& operator+=(const FT_Vector v) {
-            dx_ += v.x / 64.;
-            dy_ += v.y / 64.;
-            return *this;
-            }
-        };
 
     //! Describe the metrics of a glyph or string relative to the origin
     //! of the first character

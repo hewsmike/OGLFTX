@@ -34,7 +34,7 @@
 
 #include <OGLFTX.h>
 
-
+float OGLFTX::FONT_FUDGE_FACTOR(64.0f);
 
   // Load a new face
 

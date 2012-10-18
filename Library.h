@@ -1,6 +1,8 @@
 #ifndef OGLFTX_LIBRARY_H
 #define OGLFTX_LIBRARY_H
 
+#include "OGLFTX.h"
+
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_GLYPH_H

@@ -1,4 +1,15 @@
 OGLFTX
 ======
 
-My attempt at modifying the OGLFT library for use in OpenGL version 3.2+ contexts
+My attempt at modifying the OGLFT library for use in OpenGL version 3.2+ contexts.
+
+Commits marked as 'Interim' ought not be built from.
+
+Significant alterations/decisions :
+
+    - replacement of display list implementation with buffer objects
+    - removal of Qt aspects ( as I have no idea about that )
+    - factorisation of monolithic files to per-class
+    - separating interface(s) from implementation(s)
+    - some structures converted to classes with appropriate accessors/mutators
+    - Doxygen commenting format

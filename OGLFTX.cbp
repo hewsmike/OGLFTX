@@ -31,12 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Advance.cpp" />
+		<Unit filename="Advance.h" />
+		<Unit filename="BBox.cpp" />
+		<Unit filename="BBox.h" />
 		<Unit filename="Library.cpp" />
 		<Unit filename="Library.h" />
-		<Unit filename="OGLFT.cpp" />
-		<Unit filename="OGLFT.h" />
 		<Unit filename="OGLFTX.cpp" />
 		<Unit filename="OGLFTX.h" />
+		<Unit filename="README" />
 		<Extensions>
 			<code_completion />
 			<debugger />
