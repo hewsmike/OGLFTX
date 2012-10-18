@@ -1,0 +1,30 @@
+# folders
+build
+Debug
+3rdparty
+install
+dist
+doc/html
+/win32
+/linux
+/mac
+/mac-sdk
+.settings
+
+# patterns
+doc/*.tag
+
+# eclipse
+.project
+.cproject
+
+# files
+erp_git_version.h
+.buildstate
+.lastbuild
+build.log
+@LOGFILE
+*.cbp
+*.cbTemp
+*.layout
+*~

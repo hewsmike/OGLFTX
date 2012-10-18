@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="BBox.cpp" open="1" top="1" tabpos="7">
+	<File name="BBox.cpp" open="1" top="0" tabpos="4">
 		<Cursor position="1908" topLine="0" />
 	</File>
 	<File name="Library.h" open="0" top="0" tabpos="0">
@@ -14,6 +14,6 @@
 		<Cursor position="4936" topLine="125" />
 	</File>
 	<File name="README" open="1" top="0" tabpos="1">
-		<Cursor position="544" topLine="0" />
+		<Cursor position="99" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
