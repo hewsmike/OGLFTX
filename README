@@ -1,7 +1,8 @@
 OGLFTX
 ======
 
-My attempt at modifying the OGLFT library for use in OpenGL version 3.2+ contexts.
+My attempt at modifying the OGLFT library ( see http://oglft.sourceforge.net/ )
+for use in OpenGL version 3.2+ contexts.
 
 Commits marked as 'Interim' ought not be built from.
 
