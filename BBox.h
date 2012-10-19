@@ -13,8 +13,8 @@
 /**
  * \brief This class describes the 'bounding box' metric of a glyph.
  *
- *      A bounding box defines the extents of actual Represents the distance in model space that the origin of the
- * next glyph be located. Assists in the computation of string metrics.
+ *      A bounding box defines the extents of actual non-background
+ * pixels.
  *
  * \author Mike Hewson\n
  */
@@ -39,24 +39,39 @@ namespace OGLFTX {
              */
             virtual ~BBox();
 
-            /// The left-most position at which "ink" appears
             /**
-            * \brief Constructor initialized with a FreeType bounding box
-            *
-            * \param ft_bbox - a FreeType bounding box
-            */
+             * \brief The left-most position at which "ink" appears
+             *
+             * \return the extreme left of non-background pixels
+             */
             float BBox()::x_min() const;
 
-            /// the bottom-most position at which "ink" appears
+            /**
+             * \brief The bottom-most position at which "ink" appears
+             *
+             * \return the extreme bottom of non-background pixels
+             */
             float BBox()::y_min() const;
-            /// The right-most position at which "ink" appears
 
+            /**
+             * \brief The right-most position at which "ink" appears
+             *
+             * \return the extreme right of non-background pixels
+             */
             float BBox()::x_max() const;
-            /// The top-most position at which "ink" appears
 
+            /**
+             * \brief The top-most position at which "ink" appears
+             *
+             * \return the extreme top of non-background pixels
+             */
             float BBox()::y_max() const;
-            /// The (total) advancement
 
+            /**
+             * \brief The total advancement for this bounding box
+             *
+             * \return the advancement
+             */
             Advance BBox()::advance();
 
             /**
@@ -84,12 +99,16 @@ namespace OGLFTX {
         private:
             /// The left-most position at which "ink" appears
             float x_min_;
+
             /// the bottom-most position at which "ink" appears
             float y_min_;
+
             /// The right-most position at which "ink" appears
             float x_max_;
+
             /// The top-most position at which "ink" appears
             float y_max_;
+
             /// The (total) advancement
             Advance advance_;
         };
