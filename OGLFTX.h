@@ -44,13 +44,16 @@
 #include <GL/gle.h>
 #endif
 
+/// Including this header ...
 #include <ft2build.h>
+/// ... causes definition of macros naming other
+/// header files which one may then include.
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
 #include FT_OUTLINE_H
 #include FT_TRIGONOMETRY_H
 
-//! All of OGLFTX C++ objects are in this namespace.
+/// All of OGLFTX C++ objects are in this namespace.
 
 namespace OGLFTX {
     /// Ratio of nominal font points to pixels, relating to coordinates
@@ -58,17 +61,17 @@ namespace OGLFTX {
     const float FONT_FUDGE_FACTOR;
 
     enum Coordinates {
-        X, //!< The X component of space
-        Y, //!< The Y component of space
-        Z, //!< The Z component of space
-        W  //!< The projection component of space
+        X, /// The X component of space
+        Y, /// The Y component of space
+        Z, /// The Z component of space
+        W  /// The projection component of space
         };
 
     enum ColorSpace {
-        R, //!< The Red component of a color
-        G, //!< The Green component of a color
-        B, //!< The Blue component of a color
-        A, //!< The Alpha (or transparency) of a color
+        R, /// The Red component of a color
+        G, /// The Green component of a color
+        B, /// The Blue component of a color
+        A, /// The Alpha (or transparency) of a color
         };
 
     //! Callback from GLU tessellation routines.
@@ -78,11 +81,11 @@ namespace OGLFTX {
     //! Describe the metrics of a glyph or string relative to the origin
     //! of the first character
     struct BBox {
-        float x_min_;     //!< The left-most position at which "ink" appears.
-        float y_min_;     //!< the bottom-most position at which "ink" appears.
-        float x_max_;     //!< The right-most position at which "ink" appears.
-        float y_max_;     //!< The top-most position at which "ink" appears.
-        Advance advance_; //!< The (total) advancement
+        float x_min_;     /// The left-most position at which "ink" appears.
+        float y_min_;     /// the bottom-most position at which "ink" appears.
+        float x_max_;     /// The right-most position at which "ink" appears.
+        float y_max_;     /// The top-most position at which "ink" appears.
+        Advance advance_; /// The (total) advancement
 
         //! Default constructor is all zeros.
         BBox() : x_min_(0), y_min_(0), x_max_(0), y_max_(0) {
@@ -191,19 +194,19 @@ namespace OGLFTX {
     //! Thanks to the standard formerly known as PHIGS. Horizontal text
     //! justification constants.
     enum HorizontalJustification {
-      LEFT,   //!< Left justified justification of text
-      ORIGIN, //!< Natural origin alignment of text (default)
-      CENTER, //!< Center justified alignment of text
-      RIGHT   //!< Right justified alignment of text
+      LEFT,   /// Left justified justification of text
+      ORIGIN, /// Natural origin alignment of text (default)
+      CENTER, /// Center justified alignment of text
+      RIGHT   /// Right justified alignment of text
     };
 
     //! Thanks to the standard formerly known as PHIGS. Vertical text
     //! justification constants.
     enum VerticalJustification {
-      BOTTOM,   //!< Descender alignment of text
-      BASELINE, //!< Baseline alignment of text (default)
-      MIDDLE,   //!< Centered alignment of text
-      TOP       //!< Ascender justification of text
+      BOTTOM,   /// Descender alignment of text
+      BASELINE, /// Baseline alignment of text (default)
+      MIDDLE,   /// Centered alignment of text
+      TOP       /// Ascender justification of text
     };
 
     //! Control how OpenGL display lists are created for individual glyphs.
@@ -213,8 +216,8 @@ namespace OGLFTX {
     //! cached glyphs will be drawn if available, otherwise the FreeType
     //! data for a glyph is re-rendered each time.
     enum GlyphCompileMode {
-      COMPILE,    //!< Compile new glyphs when seen for the first time.
-      IMMEDIATE   //!< Do not \em create display lists for glyphs.
+      COMPILE,    /// Compile new glyphs when seen for the first time.
+      IMMEDIATE   /// Do not \em create display lists for glyphs.
     };
 
   private:
@@ -791,10 +794,10 @@ namespace OGLFTX {
      * implement the ColorTess and TextureTess interfaces.
      */
     struct VertexInfo {
-      double v_[3]; //!< Why is this double precision? Because the second
-		    //!< argument to the routine gluTessVertex is a pointer
-		    //!< to an array of doubles. Otherwise, we could use
-		    //!< single precision everywhere.
+      double v_[3]; /// Why is this double precision? Because the second
+		    /// argument to the routine gluTessVertex is a pointer
+		    /// to an array of doubles. Otherwise, we could use
+		    /// single precision everywhere.
 
       //! The user can provide a ColorTess object which computes a color
       //! for each tesselated vertex.
@@ -1518,11 +1521,11 @@ namespace OGLFTX {
   protected:
     //! Angle of rotation of characters relative to text orientation.
     struct {
-      bool active_; //!< Is character rotation non-zero? (faster than checking all
-		    //!< the other values.)
-      GLfloat x_,   //!< Angle of rotation in the X direction.
-	y_,	    //!< Angle of rotation in the Y direction.
-	z_;	    //!< Angle of rotation in the Z direction.
+      bool active_; /// Is character rotation non-zero? (faster than checking all
+		    /// the other values.)
+      GLfloat x_,   /// Angle of rotation in the X direction.
+	y_,	    /// Angle of rotation in the Y direction.
+	z_;	    /// Angle of rotation in the Z direction.
     } character_rotation_;
 
     /*!
@@ -1532,16 +1535,16 @@ namespace OGLFTX {
      * texture objects than we have to, so they are always cached.
      */
     struct TextureInfo {
-      GLuint texture_name_;  //!< A bound texture name is an integer in OpenGL.
-      FT_Int left_bearing_,  //!< The left bearing of the transformed glyph.
-	bottom_bearing_;     //!< The bottom bearing of the transformed glyph.
-      int width_,	     //!< The 2**l width of the texture.
-	height_;	     //!< The 2**m height of the texture.
-      GLfloat texture_s_,    //!< The fraction of the texture width occupied
-			     //!< by the glyph.
-	texture_t_;	     //!< The fraction of the texture height occupied
-                             //!< by the glyph.
-      FT_Vector advance_;    //!< The advance vector of the transformed glyph.
+      GLuint texture_name_;  /// A bound texture name is an integer in OpenGL.
+      FT_Int left_bearing_,  /// The left bearing of the transformed glyph.
+	bottom_bearing_;     /// The bottom bearing of the transformed glyph.
+      int width_,	     /// The 2**l width of the texture.
+	height_;	     /// The 2**m height of the texture.
+      GLfloat texture_s_,    /// The fraction of the texture width occupied
+			     /// by the glyph.
+	texture_t_;	     /// The fraction of the texture height occupied
+                             /// by the glyph.
+      FT_Vector advance_;    /// The advance vector of the transformed glyph.
     };
 
     //! Type of the cache of defined glyph to texture objects mapping.

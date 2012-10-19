@@ -55,16 +55,16 @@ namespace OGLFTX {
             float dy(void) const;
 
             /**
-             * \brief Increment with a FreeType advance member
+             * \brief Add a FreeType advance member
              *
              * \return a self reference
              */
             Advance& operator+=(const FT_Vector v);
 
         private:
-            /// Increment in the x-direction
+            /// The increment in the x-direction
             float dx_;
-            /// Increment in the y-direction
+            /// The increment in the y-direction
             float dy_;
         };
     }
