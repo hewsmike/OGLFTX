@@ -23,7 +23,7 @@ namespace OGLFTX {
      class ColorTess {
         public:
             /**
-             * \brief Compute a color for a glyph coordinate.this position.
+             * \brief Compute a color for a glyph point.
              *
              *  Note that the position is in the glyph's local coordinate system.
              *

@@ -36,11 +36,15 @@
 		<Unit filename="Advance.h" />
 		<Unit filename="BBox.cpp" />
 		<Unit filename="BBox.h" />
+		<Unit filename="ColorTess.h" />
+		<Unit filename="Face.cpp" />
+		<Unit filename="Face.h" />
 		<Unit filename="Library.cpp" />
 		<Unit filename="Library.h" />
 		<Unit filename="OGLFTX.cpp" />
 		<Unit filename="OGLFTX.h" />
 		<Unit filename="README" />
+		<Unit filename="TextureTess.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

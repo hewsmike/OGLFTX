@@ -79,32 +79,6 @@ namespace OGLFTX {
 
 
 
-  //! During tesselation of a polygonal Face (outline, filled or solid),
-  //! an object which implements this interface can be used to compute a
-  //! different color for each vertex.
-  class ColorTess {
-  public:
-    //! Compute a color for this position. Note that the position is
-    //! in the glyph's local coordinate system.
-    //! \param p vertex position in glyph's local coordinate system. Argument is
-    //! a GLdouble[3].
-    //! \return GLfloat[4] (RGBA) color specification.
-    virtual GLfloat* color ( GLdouble* p ) = 0;
-  };
-
-  //! During tesselation of a polygonal Face (outline, filled or solid),
-  //! an object which implements this interface can be used to compute a
-  //! different texture coordinate for each vertex.
-  class TextureTess {
-  public:
-    //! Compute a texture coordinate for this position. Note that the
-    //! position is in the glyph's local coordinate system.
-    //! \param p vertex position in glyph's local coordinate system. Argument is
-    //! a GLdouble[3].
-    //! \return GLfloat[2] (s,t) texture coordinates.
-    virtual GLfloat* texCoord ( GLdouble* p ) = 0;
-  };
-
   //! The argument to setCharacterDisplayLists is an STL vector of
   //! OpenGL display list names (GLuints).
   typedef std::vector<GLuint> DisplayLists;

@@ -23,7 +23,7 @@ namespace OGLFTX {
     class TextureTess {
         public:
             /**
-             * \brief Compute texture coordinates for this position.
+             * \brief Compute texture coordinates for a glyph point.
              *
              * Note that position is in the glyph's local coordinate system.
              *
