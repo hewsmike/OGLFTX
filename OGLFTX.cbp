@@ -31,6 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename=".gitignore" />
 		<Unit filename="Advance.cpp" />
 		<Unit filename="Advance.h" />
 		<Unit filename="BBox.cpp" />
