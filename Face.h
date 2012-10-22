@@ -73,10 +73,12 @@ namespace OGLFTX {
                                   IMMEDIATE};
 
             /**
-             * Construct a Face by loading a font from the given file.
-             * \param filename the filename which contains the font face.
-             * \param point_size the initial point size of the font to generate. A point
-             * is essentially 1/72th of an inch. Defaults to 12.
+             * \brief Construct a Face by loading a font from the given file.
+             *
+             * \param filename - the file which contains the font face.
+             *
+             * \param point_size - the initial point size of the font to generate.
+             *                     A point is essentially 1/72th of an inch. Defaults to 12.
              * \param resolution the pixel density of the display in dots per inch (DPI).
              * Defaults to 100 DPI.
              */

@@ -29,48 +29,45 @@
  *
  */
 
-// Load a new face
-
-  Face::Face ( const char* filename, float point_size, FT_UInt resolution )
-    : point_size_( point_size ), resolution_( resolution )
-  {
+Face::Face(const char* filename, float point_size, FT_UInt resolution) :
+            point_size_( point_size ), resolution_( resolution ) {
     valid_ = true; // Assume the best :-)
 
     FT_Face ft_face;
 
     FT_Error error = FT_New_Face( Library::instance(), filename, 0, &ft_face );
 
-    if ( error != 0 ) {
-      valid_ = false;
-      return;
-    }
+    if(error != 0) {
+        valid_ = false;
+        return;
+        }
 
     // As of FreeType 2.1: only a UNICODE charmap is automatically activated.
     // If no charmap is activated automatically, just use the first one.
-    if ( ft_face->charmap == 0 && ft_face->num_charmaps > 0 )
-      FT_Select_Charmap( ft_face, ft_face->charmaps[0]->encoding );
+    if((ft_face->charmap == 0) && (ft_face->num_charmaps > 0)) {
+        FT_Select_Charmap( ft_face, ft_face->charmaps[0]->encoding );
+        }
 
-    faces_.push_back( FaceData( ft_face ) );
+    faces_.push_back(FaceData(ft_face));
 
     init();
-  }
+    }
 
-  // Go with a face that the user has already opened.
-
-  Face::Face ( FT_Face face, float point_size, FT_UInt resolution )
-    : point_size_( point_size ), resolution_( resolution )
-  {
+Face::Face(FT_Face face, float point_size, FT_UInt resolution) :
+            point_size_( point_size ), resolution_( resolution )
+    {
     valid_ = true;
 
     // As of FreeType 2.1: only a UNICODE charmap is automatically activated.
     // If no charmap is activated automatically, just use the first one.
-    if ( face->charmap == 0 && face->num_charmaps > 0 )
-      FT_Select_Charmap( face, face->charmaps[0]->encoding );
+    if((face->charmap == 0) && (face->num_charmaps) > 0) {
+        FT_Select_Charmap(face, face->charmaps[0]->encoding);
+        }
 
-    faces_.push_back( FaceData( face, false ) );
+    faces_.push_back(FaceData(face, false));
 
     init();
-  }
+    }
 
   // Standard initialization behavior once the font file is opened.
 
