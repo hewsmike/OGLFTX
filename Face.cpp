@@ -1,3 +1,34 @@
+/*
+ * OGLFT: A library for drawing text with OpenGL using the FreeType library
+ * Copyright (C) 2002 lignum Computing, Inc. <OGLFT@lignumcomputing.com>
+ * $Id: OGLFT.h,v 1.15 2003/10/01 14:41:09 allen Exp $
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * OGLFTX is based upon OGLFT, as noted above, and was developed in 2012 to
+ * provide OpenGL v3.2+ forward compatibility. Main changes :
+ *          - replacing display lists with buffer objects.
+ *          - all references to Qt removed ( I have no idea how to integrate
+ *            that correctly )
+ *          - static build of OGLFTX.h and OGLFTX.cpp into application, no
+ *            separate library build provided.
+ *
+ * Mike Hewson <hewsmike[AT]iinet.net.au>.
+ *
+ */
+
 // Load a new face
 
   Face::Face ( const char* filename, float point_size, FT_UInt resolution )
