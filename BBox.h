@@ -28,10 +28,12 @@ namespace OGLFTX {
             BBox(void);
 
             /**
-            * \brief Constructor initialized with a FreeType bounding box
-            *
-            * \param ft_bbox - a FreeType bounding box
-            */
+             * \brief Constructor initialized with a FreeType bounding box.
+             *        The advancement is initialized to zero by its default
+             *        constructor.
+             *
+             * \param ft_bbox - a FreeType bounding box
+             */
             BBox(FT_BBox ft_bbox);
 
             /**
@@ -44,57 +46,56 @@ namespace OGLFTX {
              *
              * \return the extreme left of non-background pixels
              */
-            float BBox()::x_min() const;
+            float x_min() const;
 
             /**
              * \brief The bottom-most position at which "ink" appears
              *
              * \return the extreme bottom of non-background pixels
              */
-            float BBox()::y_min() const;
+            float y_min() const;
 
             /**
              * \brief The right-most position at which "ink" appears
              *
              * \return the extreme right of non-background pixels
              */
-            float BBox()::x_max() const;
+            float x_max() const;
 
             /**
              * \brief The top-most position at which "ink" appears
              *
              * \return the extreme top of non-background pixels
              */
-            float BBox()::y_max() const;
+            float y_max() const;
 
             /**
              * \brief The total advancement for this bounding box
              *
              * \return the advancement
              */
-            Advance BBox()::advance();
+            Advance advance();
 
             /**
              * \brief Scale a bounding box by a constant
              *
-             * \param k - the scaling factor
+             * \param scale - the scaling factor
              *
              * \return a self reference
              */
-            BBox& operator*=(double k);
+            BBox& operator*=(double scale);
 
             /**
-             * \brief Merge a bounding box into the current one
+             * \brief Merge another bounding box into the current one
              *
-             *      Each time a BBox is "added", the current BBox is expanded
-             * to include the metrics of the new BBox. May only work for
-             * horizontal fonts, though.
+             *      The current BBox is expanded to include the metrics
+             * of the other BBox. May only work for horizontal fonts, though.
              *
-             * \param b - the bounding box to merge
+             * \param box - the bounding box to merge
              *
              * \return a self reference
              */
-            BBox& operator+=(const BBox& b);
+            BBox& operator+=(const BBox& box);
 
         private:
             /// The left-most position at which "ink" appears
@@ -119,4 +120,3 @@ namespace OGLFTX {
  */
 
 #endif // OGLFTX_ADVANCE_H
-

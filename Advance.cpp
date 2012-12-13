@@ -1,6 +1,7 @@
 #include "Advance.h"
 
-Advance::Advance(Advance(float dx = 0, float dy = 0) : dx_(dx), dy_(dy) {
+Advance::Advance(Advance(float dx = 0, float dy = 0) :
+                    dx_(dx), dy_(dy) {
     }
 
 Advance::Advance(FT_Vector v) {

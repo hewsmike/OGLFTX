@@ -25,7 +25,8 @@ namespace OGLFTX {
             /**
              * \brief Compute a color for a glyph point.
              *
-             *  Note that the position is in the glyph's local coordinate system.
+             *      Note that the position is in the glyph's local coordinate
+             * system.
              *
              * \param p - vertex position in glyph's local coordinate system.
              *            Argument is a GLdouble[3].
