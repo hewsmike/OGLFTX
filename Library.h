@@ -9,7 +9,7 @@
  */
 
 /**
- * \brief This class enacts a Freetype library singleton handle.
+ * \brief This class enacts a Freetype library singleton plus handle.
  *
  * \author Mike Hewson\n
  */

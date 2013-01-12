@@ -31,9 +31,9 @@ namespace OGLFTX {
             /**
              * \brief Constructor initialized with a FreeType advance.
              *
-             * \param v - the Freetype vector
+             * \param vec - the Freetype vector
              */
-            Advance(FT_Vector v);
+            Advance(FT_Vector vec);
 
             /**
              * \brief Destructor
@@ -57,9 +57,11 @@ namespace OGLFTX {
             /**
              * \brief Add a FreeType advance member
              *
+             * \param vec - a Freetype advance member
+             *
              * \return a self reference
              */
-            Advance& operator+=(const FT_Vector v);
+            Advance& operator+=(const FT_Vector vec);
 
         private:
             /// The increment in the x-direction

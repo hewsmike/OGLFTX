@@ -58,7 +58,7 @@
 namespace OGLFTX {
     /// Ratio of nominal font points to pixels, relating to coordinates
     /// that are in 26.6 pixel format ( a font/driver/industry thingy ).
-    const float FONT_FUDGE_FACTOR;
+    static const float FONT_FUDGE_FACTOR;
 
     enum Coordinates {
         X, /// The X component of space
