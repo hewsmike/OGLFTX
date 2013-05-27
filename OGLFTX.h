@@ -18,17 +18,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * OGLFTX is based upon OGLFT, as noted above, and was developed in 2012 to
+ * OGLFTX is based upon OGLFT, as noted above, and was developed in 2013 mainly
  * provide OpenGL v3.2+ forward compatibility. Main changes :
- *          - replacing display lists with buffer objects.
+ *          - replacing display lists with vertex buffer objects, thus
+ *            allowing use in OpenGL forward compatible profiles.
  *          - all references to Qt removed ( I have no idea how to integrate
- *            that correctly )
+ *            that correctly ) and thus 'printf' like formatting also.
+ *          - removing extrusions and solid fonts
  *          - static build of OGLFTX.h and OGLFTX.cpp into application, no
  *            separate library build provided.
  *
  * Mike Hewson <hewsmike[AT]iinet.net.au>.
  *
  */
+
 #ifndef OGLFTX_H
 #define OGLFTX_H
 
@@ -39,10 +42,6 @@
 
 #include <GL/gl.h>
 #include <GL/glu.h>
-
-#ifndef OGLFTX_NO_SOLID
-#include <GL/gle.h>
-#endif
 
 /// Including this header ...
 #include <ft2build.h>
@@ -56,9 +55,17 @@
 /// All of OGLFTX C++ objects are in this namespace.
 
 namespace OGLFTX {
-    /// Ratio of nominal font points to pixels, relating to coordinates
-    /// that are in 26.6 pixel format ( a font/driver/industry thingy ).
-    static const float FONT_FUDGE_FACTOR;
+    /// Under FreeType, scaled pixel positions are all expressed in the
+    /// 26.6 fixed float format ie. 32 bits ( a 26-bit integer mantissa,
+    /// and a 6-bit fractional part). In other words, all grid coordinates
+    /// ( in the EM design square ) are multiplied by 64 to get to pixel
+    /// coordinates. The grid lines along the integer pixel positions are
+    /// multiples of 64 like : (0,0), (64,0), (0,64), (128,128), etc. while
+    /// the pixel centers lie at middle coordinates (32 modulo 64) like :
+    /// (32,32), (96,32), etc. Conceptually :
+    ///     F_EXP_7 = FREETYPE_FIXED_FLOAT_FORMAT_FONT_FUDGE_FACTOR
+    /// :-) :-)
+    static const float F_EXP_7;
 
     enum Coordinates {
         X, /// The X component of space

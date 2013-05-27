@@ -5,8 +5,9 @@ Advance::Advance(Advance(float dx = 0, float dy = 0) :
     }
 
 Advance::Advance(FT_Vector vec) {
-    dx_ = vec.x / OGLFTX::FONT_FUDGE_FACTOR;
-    dy_ = vec.y / OGLFTX::FONT_FUDGE_FACTOR;
+    // Note scaling to grid coordinates from FreeType scaled pixel positions.
+    dx_ = vec.x / OGLFTX::F_EXP_7;
+    dy_ = vec.y / OGLFTX::F_EXP_7;
     }
 
 Advance::~Advance() {
@@ -21,7 +22,8 @@ float Advance::dy(void) const {
     }
 
 Advance& Advance::operator+=(const FT_Vector vec) {
-    dx_ += vec.x / OGLFTX::FONT_FUDGE_FACTOR;
-    dy_ += vec.y / OGLFTX::FONT_FUDGE_FACTOR;
+    // Note scaling to grid coordinates from FreeType scaled pixel positions.
+    dx_ += vec.x / OGLFTX::F_EXP_7;
+    dy_ += vec.y / OGLFTX::F_EXP_7;
     return *this;
     }
